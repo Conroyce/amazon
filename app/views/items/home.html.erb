@@ -1,9 +1,15 @@
 <div ng-app="AmazonApp">
   <div ng-controller="MainCtrl">
     <div ng-model="cart">
-      <div ng-repeat="item in cart">
-        <p>In Cart: {{item.name}}, ${{item.price}}</p>
-      </div>  
+    <p>Shopping Cart:</p>
+      <div ng-repeat="item in cart.items">
+        <p>{{item.name}}, ${{item.price}}, Quantity: {{item.quantity}}</p>
+      </div> 
+      <p>Total: ${{cart.total}}</p> 
+      <form>  
+        <input type="text" placeholder="Enter Name" class="name">
+        <input type="submit" class="order-button" value="Place Order">
+      </form>
     </div>
     <div ng-repeat="item in items">
       <h3>Item: {{item.name}}</h3>
