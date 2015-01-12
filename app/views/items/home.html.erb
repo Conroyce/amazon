@@ -1,1 +1,18 @@
-<h1>Look at app/views/items/home.html.erb</h1>
+<div ng-app="AmazonApp">
+  <div ng-controller="MainCtrl">
+    <div ng-model="cart">
+      <div ng-repeat="item in cart">
+        <p>In Cart: {{item.name}}, ${{item.price}}</p>
+      </div>  
+    </div>
+    <div ng-repeat="item in items">
+      <h3>Item: {{item.name}}</h3>
+      <p>Description: {{item.description}}</p>
+      <p>Price: ${{item.price}}</p>
+      <p>Quantity: {{item.quantity}}</p>
+      <img ng-src={{item.url}}>
+      <input type="button" ng-click="addToCart(item.name,item.price)" value="Add To Cart">
+    </div>
+  </div>
+</div>
+
