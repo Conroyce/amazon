@@ -1,24 +1,33 @@
-<div ng-app="AmazonApp">
-  <div ng-controller="MainCtrl">
-    <div ng-model="cart">
-    <p>Shopping Cart:</p>
-      <form class="order-form">
-        <div ng-repeat="item in cart.items">
-          <span>{{item.name}}</span> <span>${{item.price}}</span> <span>Quantity: {{item.quantity}}</span> <input type="button" ng-click="removeFromCart(item.name,item.price)" value="Remove From Cart"></p>
-        </div> 
-        <p>Total: ${{cart.total}}</p> 
-          
-        <input type="text" placeholder="Enter Name" id="name-input" ng-model="name">
-        <input type="submit" class="order-button" value="Place Order" ng-click="placeOrder()">
-      </form>
+<div ng-app="AmazonApp" class="container">
+  <div ng-controller="MainCtrl">      
+    <div ng-model="cart" class="shoppingCart">
+      <p>Shopping Cart:</p>
+        <form class="order-form">
+          <div ng-repeat="item in cart.items">
+            <span>{{item.name}}</span> <span>${{item.price}}</span> <span>Quantity: {{item.quantity}}</span> <input type="button" ng-click="removeFromCart(item.name,item.price)" value="Remove From Cart" class="btn btn-xs btn-danger"></p>
+          </div> 
+          <p>Total: ${{cart.total}}</p> 
+            
+          <input type="text" placeholder="Enter Name" id="name-input" ng-model="name">
+          <input type="submit" class="btn btn-xs btn-success" value="Place Order" ng-click="placeOrder()">
+        </form> 
     </div>
-    <div ng-repeat="item in items">
-      <h3>Item: {{item.name}}</h3>
-      <p>Description: {{item.description}}</p>
-      <p>Price: ${{item.price}}</p>
-      <p>Quantity: {{item.quantity}}</p>
-      <img ng-src={{item.url}}>
-      <input type="button" ng-click="addToCart(item)" value="Add To Cart">
+    <div ng-repeat="item in items" class="col-md-6">
+        <div class="col-md-12"><h3>{{item.name}}</h3></div>
+        <div class="col-md-12">{{item.description}}</div>
+        <div class="col-md-6"><p>Price: ${{item.price}}</p></div>
+        <div class="col-md-6"><p>Quantity: {{item.quantity}}</p></div>
+        <div class="row">
+          <div class="col-md-5">
+          </div>
+          <div class="col-md-2">
+            <input type="button" ng-click="addToCart(item)" value="Add To Cart" class="btn btn-sm btn-success">
+          </div>
+          <div class="col-md-5">
+          </div>  
+        </div>  
+        <img ng-src={{item.url}}><br>
+
     </div>
   </div>
 </div>

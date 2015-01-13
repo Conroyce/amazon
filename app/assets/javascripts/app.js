@@ -37,9 +37,7 @@ app.controller("MainCtrl",["$scope", "$resource",function($scope, $resource) {
     var updatedItem = Item.get({id:id}, function(item) {
       item.quantity -= newQuantity;
       item.$update();
-      console.log(item);
     });
-    // console.log(updatedItem);
   } 
 
   var addOrder = function(name,total) {
@@ -48,15 +46,14 @@ app.controller("MainCtrl",["$scope", "$resource",function($scope, $resource) {
   };
 
   $scope.placeOrder = function() {
-    $scope.cart.name = $scope.name;
     $scope.cart.items.forEach(function(item) {
-      console.log(item)
       updateQuantity(item.quantity,item.id)
     });
-    addOrder($scope.cart.name,$scope.cart.total);
+
+    addOrder($scope.name,$scope.cart.total);
     $scope.cart.items = [];
     $scope.cart.total = 0;
-    document.getElementById("name-input").value = "";
+    $scope.name = "";
   };
 
   $scope.addToCart = function(item) {
@@ -90,9 +87,9 @@ app.controller("MainCtrl",["$scope", "$resource",function($scope, $resource) {
   };
 
   $scope.removeFromCart = function(name,price) {
-     var price = 0;
-    
+    var price = 0; 
     var subtracted = false;
+
     for (var i = 0; i < $scope.cart.items.length; i++) {
       if($scope.cart.items[i].name === name) {
         var res = $scope.cart.items.splice(i,1);
