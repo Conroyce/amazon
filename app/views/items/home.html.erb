@@ -2,13 +2,14 @@
   <div ng-controller="MainCtrl">
     <div ng-model="cart">
     <p>Shopping Cart:</p>
-      <div ng-repeat="item in cart.items">
-        <p>{{item.name}}, ${{item.price}}, Quantity: {{item.quantity}}</p>
-      </div> 
-      <p>Total: ${{cart.total}}</p> 
-      <form>  
-        <input type="text" placeholder="Enter Name" class="name">
-        <input type="submit" class="order-button" value="Place Order">
+      <form class="order-form">
+        <div ng-repeat="item in cart.items">
+          <span>{{item.name}}</span> <span>${{item.price}}</span> <span>Quantity: {{item.quantity}}</span> <input type="button" ng-click="removeFromCart(item.name,item.price)" value="Remove From Cart"></p>
+        </div> 
+        <p>Total: ${{cart.total}}</p> 
+          
+        <input type="text" placeholder="Enter Name" class="name" ng-model="name">
+        <input type="submit" class="order-button" value="Place Order" ng-click="placeOrder()">
       </form>
     </div>
     <div ng-repeat="item in items">
@@ -17,7 +18,7 @@
       <p>Price: ${{item.price}}</p>
       <p>Quantity: {{item.quantity}}</p>
       <img ng-src={{item.url}}>
-      <input type="button" ng-click="addToCart(item.name,item.price)" value="Add To Cart">
+      <input type="button" ng-click="addToCart(item)" value="Add To Cart">
     </div>
   </div>
 </div>
