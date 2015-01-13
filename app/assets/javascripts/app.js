@@ -4,8 +4,7 @@ app.controller("MainCtrl",["$scope", "$resource",function($scope, $resource) {
 
   var Item = $resource('/items/:id',{id: "@id"}, {update: {method: "PATCH"}});
 
-
-  // var PlaceOrder = $resource("/items/:id",)
+  var Order = $resource('/orders');
 
   Item.query(function(items) { console.log(items); });
   
@@ -18,7 +17,6 @@ app.controller("MainCtrl",["$scope", "$resource",function($scope, $resource) {
   //   $scope.item.$delete();
   //   //$score.item.id var Item code looks for the id and sends delete request to "/items/5" or whatever id.
   // };
-
 
   $scope.cart = {items:[],total:0};
   $scope.name = "";
@@ -44,13 +42,21 @@ app.controller("MainCtrl",["$scope", "$resource",function($scope, $resource) {
     // console.log(updatedItem);
   } 
 
+  var addOrder = function(name,total) {
+    var order = new Order({person:name,cost:total});
+    order.$save();
+  };
+
   $scope.placeOrder = function() {
     $scope.cart.name = $scope.name;
     $scope.cart.items.forEach(function(item) {
       console.log(item)
       updateQuantity(item.quantity,item.id)
     });
-    
+    addOrder($scope.cart.name,$scope.cart.total);
+    $scope.cart.items = [];
+    $scope.cart.total = 0;
+    document.getElementById("name-input").value = "";
   };
 
   $scope.addToCart = function(item) {
