@@ -1,5 +1,5 @@
 <div ng-app="AmazonApp" class="container">
-  <div ng-controller="MainCtrl">      
+  <div ng-controller="ItemsCtrl">      
     <div ng-model="cart" class="shoppingCart">
       <p>Shopping Cart:</p>
         <form class="order-form">
@@ -28,6 +28,10 @@
         </div>  
         <img ng-src={{item.url}}><br>
 
+    </div>
+    <div ng-repeat="order in orders" class="col-md-12">
+      <p>{{order.name}}</p>
+      <p>${{order.cost}}</p>
     </div>
   </div>
 </div>
