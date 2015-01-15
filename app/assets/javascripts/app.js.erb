@@ -12,7 +12,7 @@ app.config(function($routeProvider) {
     })
     .when("/orders", {
       templateUrl: "<%= asset_path('templates/orders.html') %>",
-      controller: "pastOrders"
+      controller: "PastOrders"
     })
     .otherwise({
       redirectTo: "/"

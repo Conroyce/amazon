@@ -10,19 +10,10 @@
   <%= csrf_meta_tags %>
 </head>
 <body ng-app="AmazonApp">
-  <nav class="navbar navbar-default" ng-controller="NavCtrl">
-    <div class="container">
-      <div class="navbar-header">
-        <a href="" ng-click="homePath()" class="navbar-brand">Amazon</a>
-      </div>  
-      <ul class="nav navbar-nav">
-        <li><a ng-click="cartPath()" href="">My Cart</a></li>
-        <li><a ng-click="orderPath()" href="">Past Orders</a></li>
-      </ul>
-    </div>    
-  </nav>
-   
-<%= yield %>
+  <%= yield %>
+  <div ng-include="'<%= asset_path 'templates/nav.html' %>'"></div> 
+  <div class="container"><ng-view></ng-view></div>
+
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
 </body>
 </html>
