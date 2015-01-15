@@ -15,7 +15,6 @@ app.config(function($routeProvider) {
       controller: "pastOrders"
     })
     .otherwise({
-      templateUrl: "<%= asset_path('templates/items.html') %>",
-      controller: "ItemsCtrl"
+      redirectTo: "/"
     });
 });

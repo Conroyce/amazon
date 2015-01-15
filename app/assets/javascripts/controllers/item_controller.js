@@ -1,10 +1,8 @@
-app.controller("ItemsCtrl",["$scope", "Item","Cart","$location",function($scope, Item, Cart,$location) { //$resource
+app.controller("ItemsCtrl",["$scope", "Item","Cart",function($scope, Item, Cart,$location) { //$resource
 
   // var Item = $resource('/items/:id',{id: "@id"}, {update: {method: "PATCH"}});
-  $location.path("/")
-  $scope.cartPath = function() {
-    $location.path("/cart");
-  };
+
+
   $scope.items = Item.items; 
 
   var lowerQuantity = function(name) {

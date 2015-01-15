@@ -9,15 +9,15 @@
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
-<body>
-  
-  <nav class="navbar navbar-default">
+<body ng-app="AmazonApp">
+  <nav class="navbar navbar-default" ng-controller="NavCtrl">
     <div class="container">
       <div class="navbar-header">
-        <a href="" class="navbar-brand">Amazon</a>
+        <a href="" ng-click="homePath()" class="navbar-brand">Amazon</a>
       </div>  
       <ul class="nav navbar-nav">
-        <li><a href=""></a></li>
+        <li><a ng-click="cartPath()" href="">My Cart</a></li>
+        <li><a ng-click="orderPath()" href="">Past Orders</a></li>
       </ul>
     </div>    
   </nav>
