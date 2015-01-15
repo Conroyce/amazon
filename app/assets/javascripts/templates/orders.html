@@ -1,0 +1,8 @@
+<div ng-controller="PastOrders">
+    <div class="row">
+      <h3>Past Orders</h3>
+      <div ng-repeat="order in orders" class="col-md-3">
+        <p>{{order.person}}: ${{order.cost}}</p>
+      </div>
+    </div>  
+  </div>

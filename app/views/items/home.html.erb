@@ -1,44 +1,4 @@
 <div ng-app="AmazonApp" class="container">
-  <div ng-controller="CartCtrl">      
-    <div ng-model="Cart" class="shoppingCart">
-      <p>Shopping Cart:</p>
-        <form class="order-form">
-          <div ng-repeat="item in Cart.items">
-            <span>{{item.name}}</span> <span>${{item.price}}</span> <span>Quantity: {{item.quantity}}</span> <input type="button" ng-click="removeFromCart(item.name,item.price)" value="Remove From Cart" class="btn btn-xs btn-danger"></p>
-          </div> 
-          <p>Total: ${{Cart.total}}</p> 
-            
-          <input type="text" placeholder="Enter Name" id="name-input" ng-model="Cart.name">
-          <input type="submit" class="btn btn-xs btn-success" value="Place Order" ng-click="placeOrder()">
-        </form> 
-    </div>
-  </div>
-  <div ng-controller="ItemsCtrl" class="row">  
-    <div ng-repeat="item in items" class="col-md-6">
-        <div class="col-md-12"><h3>{{item.name}}</h3></div>
-        <div class="col-md-12">{{item.description}}</div>
-        <div class="col-md-6"><p>Price: ${{item.price}}</p></div>
-        <div class="col-md-6"><p>Quantity: {{item.quantity}}</p></div>
-        <div class="row">
-          <div class="col-md-5">
-          </div>
-          <div class="col-md-2">
-            <input type="button" ng-click="addToCart(item)" value="Add To Cart" class="btn btn-sm btn-success">
-          </div>
-          <div class="col-md-5">
-          </div>  
-        </div>  
-        <img ng-src={{item.url}}><br>
-
-    </div>
-  </div>
-  <div ng-controller="PastOrders">
-    <div class="row">
-      <h3>Past Orders</h3>
-      <div ng-repeat="order in orders" class="col-md-3">
-        <p>{{order.person}}: ${{order.cost}}</p>
-      </div>
-    </div>  
-  </div>
+  <ng-view></ng-view>
 </div>
 

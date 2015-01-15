@@ -1,0 +1,21 @@
+var app = angular.module("AmazonApp",["ngRoute","ngResource"]);
+
+app.config(function($routeProvider) {
+  $routeProvider
+    .when("/", {
+      templateUrl: "<%= asset_path('templates/items.html') %>",
+      controller: "ItemsCtrl"
+    })
+    .when("/cart", {
+      templateUrl: "<%= asset_path('templates/cart.html') %>",
+      controller: "CartCtrl"
+    })
+    .when("/orders", {
+      templateUrl: "<%= asset_path('templates/orders.html') %>",
+      controller: "pastOrders"
+    })
+    .otherwise({
+      templateUrl: "<%= asset_path('templates/items.html') %>",
+      controller: "ItemsCtrl"
+    });
+});

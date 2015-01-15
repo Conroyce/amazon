@@ -1,0 +1,18 @@
+ <div ng-controller="CartCtrl">      
+    <div ng-model="Cart" class="shoppingCart">
+      <div class="row">
+        <div class="col-md-4"></div>
+        <form class="col-md-4">
+          <p>Shopping Cart:</p>
+          <div ng-repeat="item in Cart.items">
+            <span>{{item.name}}</span> <span>${{item.price}}</span> <span>Quantity: {{item.quantity}}</span> <input type="button" ng-click="removeFromCart(item.name,item.price)" value="Remove From Cart" class="btn btn-xs btn-danger"></p>
+          </div> 
+          <p>Total: ${{Cart.total}}</p> 
+            
+          <input type="text" placeholder="Enter Name" id="name-input" ng-model="Cart.name" class="form">
+          <input type="submit" class="btn btn-xs btn-success" value="Place Order" ng-click="placeOrder()">
+        </form>
+        <div class="col-md-4"></div> 
+      </div>  
+    </div>
+  </div>
