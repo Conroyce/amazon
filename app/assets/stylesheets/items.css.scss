@@ -15,3 +15,17 @@
 .shoppingCart {
   margin-bottom:30px;
 }
+div[class^="star"] {
+  height:30px;
+  width:30px;
+  background: image-url("black_star.png");
+  background-size:cover;
+  display:inline-block;
+}
+.goldStar {
+  height:30px !important;
+  width:30px !important;
+  background: image-url("gold_star.png") !important;
+  background-size:cover !important;
+  display:inline-block !important;
+}

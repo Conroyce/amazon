@@ -14,9 +14,15 @@
           </div>  
         </div>
         <div class="row">  
-          <div class="col-md-12">
+          <div class="col-md-12 {{item.name}}">
             <img ng-src={{item.url}} height="300" width="250"><br>
+            <div class="star1" ng-mouseenter="rateItem(1)" ng-mouseleave="removeStar()"></div>
+            <div class="star2" ng-mouseenter="rateItem(2)" ng-mouseleave="removeStar()"></div>
+            <div class="star3" ng-mouseenter="rateItem(3)" ng-mouseleave="removeStar()"></div>
+            <div class="star4" ng-mouseenter="rateItem(4)" ng-mouseleave="removeStar()"></div>
+            <div class="star5" ng-mouseenter="rateItem(5)" ng-mouseleave="removeStar()"></div>
           </div>
-        </div>    
+        </div> 
+
     </div>
   </div>

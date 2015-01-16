@@ -7,8 +7,8 @@ app.factory('Cart',[function() {
     });
   } 
 
-  var addOrder = function(name,total,Order) {
-    var order = new Order({person:name,cost:total});
+  var addOrder = function(name,total,Order) {  //quantity,itemsArr
+    var order = new Order({person:name,cost:total}); //quantity: quantity,item_id:itemsArr
     order.$save();
   };
 
@@ -22,6 +22,19 @@ app.factory('Cart',[function() {
     this.total = 0;
     this.name = "";
   };
+
+  // var placeOrder = function(Item,Order) { //$scope
+  //   var itemsArr = [];
+  //   this.items.forEach(function(item) {
+  //     updateQuantity(item.quantity,item.id,Item)
+  //     itemsArr.push(item.id)
+  //   });
+  //   console.log(itemsArr);
+  //   addOrder(this.name,this.total,Order,itemsArr); 
+  //   this.items = [];
+  //   this.total = 0;
+  //   this.name = "";
+  // };
 
   var increaseQuantity = function(name, quantity, Item) {
     console.log(Item.items.length,"a");
