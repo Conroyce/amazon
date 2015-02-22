@@ -1,8 +1,11 @@
-app.controller("ItemsCtrl",["$scope", "Item","Cart",function($scope, Item, Cart,$location) { //$resource
+app.controller("ItemsCtrl",["$scope", "Item", "Cart", "Star",function($scope, Item, Cart, $location, Star) { //$resource
 
   // var Item = $resource('/items/:id',{id: "@id"}, {update: {method: "PATCH"}});
 
-  $scope.items = Item.items; 
+  $scope.items = Item.items;
+  console.log(Item.items);
+
+  // $scope.stars = Star.query({item_id:1});
 
   $scope.rateItem = function(num,event) {
     num = num || 0;
@@ -10,7 +13,6 @@ app.controller("ItemsCtrl",["$scope", "Item","Cart",function($scope, Item, Cart,
       var star = document.querySelector(".star"+i);
       star.className += " goldStar";
     }
-    console.log(event);
   };
 
   $scope.removeStar = function() {
@@ -18,6 +20,12 @@ app.controller("ItemsCtrl",["$scope", "Item","Cart",function($scope, Item, Cart,
       var star = document.querySelector(".star"+i);
       star.className = "star"+i;
     }
+  }
+
+  $scope.addRating = function(star,item_id) {
+    var rating = new Star({rating: star,item_id: item_id});
+    rating.$save();
+    
   }
 
   var lowerQuantity = function(name) {

@@ -10,9 +10,10 @@
   <%= csrf_meta_tags %>
 </head>
 <body ng-app="AmazonApp">
+
   <%= yield %>
   <div ng-include="'<%= asset_path 'templates/nav.html' %>'"></div> 
-  <div class="container"><ng-view></ng-view></div>
+  <div class="container"><ng-view><items-directive name="{{sprinkles.name }}"></items-directive></ng-view></div>
 
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
 </body>

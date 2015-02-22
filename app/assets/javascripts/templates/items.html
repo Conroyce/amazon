@@ -1,5 +1,14 @@
-  <div ng-controller="ItemsCtrl" class="row itemsContainer">  
-    <div ng-repeat="item in items" class="col-md-3">
+  <div ng-controller="ItemsCtrl" class="row itemsContainer">
+    <div class="row">
+      <div class="col-md-4"></div>
+      <div class="col-md-3">
+        <input type="search" ng-model="search" class="form-control" placeholder="Search For Product">
+      </div>  
+      <div class="col-md-1">
+        <input type="submit" class="btn btn-success">
+      </div>  
+    </div>
+    <div ng-repeat="item in items | filter:search" class="col-md-3">
         <div class="col-md-12"><h3>{{item.name}}</h3></div>
         <div class="col-md-12">{{item.description}}</div>
         <div class="col-md-6"><p>Price: ${{item.price}}</p></div>
@@ -16,11 +25,11 @@
         <div class="row">  
           <div class="col-md-12 {{item.name}}">
             <img ng-src={{item.url}} height="300" width="250"><br>
-            <div class="star1" ng-mouseenter="rateItem(1)" ng-mouseleave="removeStar()"></div>
-            <div class="star2" ng-mouseenter="rateItem(2)" ng-mouseleave="removeStar()"></div>
-            <div class="star3" ng-mouseenter="rateItem(3)" ng-mouseleave="removeStar()"></div>
-            <div class="star4" ng-mouseenter="rateItem(4)" ng-mouseleave="removeStar()"></div>
-            <div class="star5" ng-mouseenter="rateItem(5)" ng-mouseleave="removeStar()"></div>
+            <div class="star1" ng-mouseenter="rateItem(1)" ng-mouseleave="removeStar()" ng-click="addRating(1,item.id)"></div>
+            <div class="star2" ng-mouseenter="rateItem(2)" ng-mouseleave="removeStar()" ng-click="addRating(2,item.id)"></div>
+            <div class="star3" ng-mouseenter="rateItem(3)" ng-mouseleave="removeStar()" ng-click="addRating(3,item.id)"></div>
+            <div class="star4" ng-mouseenter="rateItem(4)" ng-mouseleave="removeStar()" ng-click="addRating(4,item.id)"></div>
+            <div class="star5" ng-mouseenter="rateItem(5)" ng-mouseleave="removeStar()" ng-click="addRating(5,item.id)"></div>
           </div>
         </div> 
 
